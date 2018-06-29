@@ -1,0 +1,40 @@
+#:kivy 1.10.0
+
+<Fruit>:
+    canvas:
+        Color:
+            rgb: (1,0,0)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SnakeHead>:
+    canvas:
+        Color:
+            rgb: (1,1,1)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SnakeTail>:
+    canvas:
+        Color:
+            rgba: (1,1,1,.8)
+        Rectangle:
+            pos: self.pos
+            size: self.size
+
+<SnakeGame>:
+    head: snake_head
+    fruit: snake_fruit
+
+    SnakeHead:
+        id: snake_head
+        size: root.player_size - 2,root.player_size - 2
+    Fruit:
+        id: snake_fruit
+        size: root.player_size - 2, root.player_size - 2
+    Label:
+        size: root.player_size, root.player_size
+        pos: root.size[0] / 10, 9 * root.size[1] / 10
+        text: str(root.score)
